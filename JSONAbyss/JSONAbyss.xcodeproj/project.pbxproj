@@ -15,6 +15,7 @@
 		A8C6D12A208FC70A009F8A78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8C6D128208FC70A009F8A78 /* LaunchScreen.storyboard */; };
 		A8C6D135208FC70A009F8A78 /* JSONAbyssTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C6D134208FC70A009F8A78 /* JSONAbyssTests.swift */; };
 		A8C6D140208FC70A009F8A78 /* JSONAbyssUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C6D13F208FC70A009F8A78 /* JSONAbyssUITests.swift */; };
+		A8C6D14E208FC853009F8A78 /* JSONAbyss.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C6D14D208FC853009F8A78 /* JSONAbyss.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		A8C6D13B208FC70A009F8A78 /* JSONAbyssUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONAbyssUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C6D13F208FC70A009F8A78 /* JSONAbyssUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONAbyssUITests.swift; sourceTree = "<group>"; };
 		A8C6D141208FC70A009F8A78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8C6D14D208FC853009F8A78 /* JSONAbyss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONAbyss.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		A8C6D11C208FC709009F8A78 /* JSONAbyss */ = {
 			isa = PBXGroup;
 			children = (
+				A8C6D14D208FC853009F8A78 /* JSONAbyss.swift */,
 				A8C6D11D208FC709009F8A78 /* AppDelegate.swift */,
 				A8C6D11F208FC709009F8A78 /* MasterViewController.swift */,
 				A8C6D121208FC709009F8A78 /* DetailViewController.swift */,
@@ -261,6 +264,7 @@
 			files = (
 				A8C6D122208FC709009F8A78 /* DetailViewController.swift in Sources */,
 				A8C6D120208FC709009F8A78 /* MasterViewController.swift in Sources */,
+				A8C6D14E208FC853009F8A78 /* JSONAbyss.swift in Sources */,
 				A8C6D11E208FC709009F8A78 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

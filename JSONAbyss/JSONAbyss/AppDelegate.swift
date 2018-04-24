@@ -14,13 +14,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+    {
         // Override point for customization after application launch.
-        let splitViewController = window!.rootViewController as! UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-        splitViewController.delegate = self
-        return true
+        JSONAbyss.getData(url: URL(string: "https://api.myjson.com/bins/19um27")!)
+        {
+            let splitViewController = self.window!.rootViewController as! UISplitViewController
+            let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+            navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+            splitViewController.delegate = self;
+        }
+        //f5c448
+        let UICol = UIColor(red:  0xf5/255.0,
+                            green:0xc4/255.0,
+                            blue: 0x48/255.0,
+                            alpha:1.0);
+        
+        UINavigationBar.appearance().barTintColor = .darkGray;
+        UINavigationBar.appearance().tintColor = UICol;
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UICol];
+        
+        while(JSONAbyss.JSONData == nil)
+        {
+            //Do nothing; spin until JSONData is returned.
+        }
+        return true;
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
