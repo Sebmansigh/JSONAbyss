@@ -30,68 +30,75 @@ class DetailViewController: UIViewController
     
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail = detailItem {
-            if let imageView = DetailImage {
-                let url = URL(string: detail["imageURL"] as! String)!
-                do
-                {
-                    imageView.image = try UIImage(data: Data(contentsOf: url))
-                }
-                catch
-                {
-                    print("Image not found at: "+url.absoluteString);
-                }
+        let detail: [String: Any];
+        if(detailItem != nil)
+        {
+            detail = detailItem!;
+        }
+        else
+        {
+            detail = JSONAbyss.get("datData","franchise",0,"entries",0) as! [String: Any];
+        }
+        if let imageView = DetailImage {
+            let url = URL(string: detail["imageURL"] as! String)!
+            do
+            {
+                imageView.image = try UIImage(data: Data(contentsOf: url))
             }
-            if let label = DetailTitle {
-                label.text = (detail["name"] as! String);
+            catch
+            {
+                print("Image not found at: "+url.absoluteString);
             }
-            if let label = DetailYear {
-                var detailStr = (detail["yearStart"] as! String)
-                if let Yend = detail["yearEnd"] as? String
+        }
+        if let label = DetailTitle {
+            label.text = (detail["name"] as! String);
+        }
+        if let label = DetailYear {
+            var detailStr = (detail["yearStart"] as! String)
+            if let Yend = detail["yearEnd"] as? String
+            {
+                if(Yend != detailStr)
                 {
-                    if(Yend != detailStr)
+                    detailStr += " -";
+                    if(Int(Yend) != nil)
                     {
-                        detailStr += " -";
-                        if(Int(Yend) != nil)
-                        {
-                            detailStr += " " + Yend;
-                        }
+                        detailStr += " " + Yend;
                     }
                 }
-                label.text = detailStr;
             }
-            if let label = DetailFormat {
-                label.text = (detail["format"] as! String);
-            }
-            if let label = DetailEpisodes
+            label.text = detailStr;
+        }
+        if let label = DetailFormat {
+            label.text = (detail["format"] as! String);
+        }
+        if let label = DetailEpisodes
+        {
+            if let epStr = detail["episodes"]
             {
-                if let epStr = detail["episodes"]
-                {
-                    let epN = epStr as! Int;
-                    label.text = String(epN) + " Episode" + (epN > 1 ? "s" : "");
-                }
-                else
-                {
-                    label.text = "";
-                }
+                let epN = epStr as! Int;
+                label.text = String(epN) + " Episode" + (epN > 1 ? "s" : "");
             }
-            if let label = DetailStudioNetwork
+            else
             {
-                if let studio = detail["studio"]
-                {
-                    label.text = (studio as! String);
-                }
-                else if let network = detail["network"]
-                {
-                    label.text = (network as! String);
-                }
+                label.text = "";
             }
-            if let label = DetailDescription {
-                label.text = (detail["description"] as! String);
+        }
+        if let label = DetailStudioNetwork
+        {
+            if let studio = detail["studio"]
+            {
+                label.text = (studio as! String);
             }
-            if let label = DetailSummary {
-                label.text = (detail["summary"] as! String);
+            else if let network = detail["network"]
+            {
+                label.text = (network as! String);
             }
+        }
+        if let label = DetailDescription {
+            label.text = (detail["description"] as! String);
+        }
+        if let label = DetailSummary {
+            label.text = (detail["summary"] as! String);
         }
     }
 
