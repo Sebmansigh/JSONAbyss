@@ -39,21 +39,24 @@ class DetailViewController: UIViewController
         {
             detail = JSONAbyss.get("datData","franchise",0,"entries",0) as! [String: Any];
         }
-        if let imageView = DetailImage {
+        if let imageView = DetailImage
+        {
             let url = URL(string: detail["imageURL"] as! String)!
             do
             {
-                imageView.image = try UIImage(data: Data(contentsOf: url))
+                imageView.image = try UIImage(data: Data(contentsOf: url));
             }
             catch
             {
                 print("Image not found at: "+url.absoluteString);
             }
         }
-        if let label = DetailTitle {
+        if let label = DetailTitle
+        {
             label.text = (detail["name"] as! String);
         }
-        if let label = DetailYear {
+        if let label = DetailYear
+        {
             var detailStr = (detail["yearStart"] as! String)
             if let Yend = detail["yearEnd"] as? String
             {
@@ -68,7 +71,8 @@ class DetailViewController: UIViewController
             }
             label.text = detailStr;
         }
-        if let label = DetailFormat {
+        if let label = DetailFormat
+        {
             label.text = (detail["format"] as! String);
         }
         if let label = DetailEpisodes
@@ -94,21 +98,25 @@ class DetailViewController: UIViewController
                 label.text = (network as! String);
             }
         }
-        if let label = DetailDescription {
+        if let label = DetailDescription
+        {
             label.text = (detail["description"] as! String);
         }
-        if let label = DetailSummary {
+        if let label = DetailSummary
+        {
             label.text = (detail["summary"] as! String);
         }
     }
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         configureView()
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

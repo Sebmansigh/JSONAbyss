@@ -46,6 +46,6 @@ class JSONAbyss
                 fatalError("Only string or integer keys are allowed.");
             }
         }
-        return curData;
+        return curData as Any;
     }
 }
